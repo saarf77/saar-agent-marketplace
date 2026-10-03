@@ -1,0 +1,20 @@
+{
+  "name": "saar-agent-marketplace",
+  "interface": {
+    "displayName": "Saar Agent Marketplace"
+  },
+  "plugins": [
+    {
+      "name": "personal-prs-agent",
+      "source": {
+        "source": "local",
+        "path": "./plugins/personal-prs-agent"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    }
+  ]
+}

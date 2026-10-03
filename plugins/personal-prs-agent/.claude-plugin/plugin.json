@@ -1,0 +1,11 @@
+{
+  "name": "personal-prs-agent",
+  "version": "0.1.0",
+  "description": "Train a private reviewer from your PR/MR history, then coordinate specialist reviews in your style. Draft first; post inline when requested.",
+  "author": {
+    "name": "saarf77",
+    "url": "https://github.com/saarf77"
+  },
+  "license": "MIT",
+  "skills": "./skills/"
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Personal PRs Agent"
+  short_description: "Review changes with your judgment and voice"
+  default_prompt: "Use $personal-prs-agent to set up my personal reviewer or review this change with my existing profile."
