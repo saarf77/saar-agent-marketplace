@@ -26,6 +26,22 @@ On first use, it helps you train your reviewer from your own PR/MR history. It d
 - **GitHub and GitLab.** Use your authenticated `gh` or `glab` CLI. No required issue-tracker integration.
 - **Private learning.** Raw comments, learned models, and posting logs belong outside this repository and outside plugin installation folders.
 
+## Where are the agents?
+
+The [main skill](plugins/personal-prs-agent/skills/personal-prs-agent/SKILL.md) is the review leader. It manages training, selects specialists, waits for them, verifies their findings, and prepares the final personal review.
+
+| Specialist | Shared instructions used by Codex | Native Claude agent |
+| --- | --- | --- |
+| Logic and security | [Instructions](plugins/personal-prs-agent/skills/personal-prs-agent/references/specialists/reviewer-logic.md) | [reviewer-logic](plugins/personal-prs-agent/agents/reviewer-logic.md) |
+| Architecture and contracts | [Instructions](plugins/personal-prs-agent/skills/personal-prs-agent/references/specialists/reviewer-architecture.md) | [reviewer-architecture](plugins/personal-prs-agent/agents/reviewer-architecture.md) |
+| Tests and quality | [Instructions](plugins/personal-prs-agent/skills/personal-prs-agent/references/specialists/reviewer-tests-quality.md) | [reviewer-tests-quality](plugins/personal-prs-agent/agents/reviewer-tests-quality.md) |
+| Accessibility and UI | [Instructions](plugins/personal-prs-agent/skills/personal-prs-agent/references/specialists/reviewer-accessibility.md) | [reviewer-accessibility](plugins/personal-prs-agent/agents/reviewer-accessibility.md) |
+| Acceptance criteria | [Instructions](plugins/personal-prs-agent/skills/personal-prs-agent/references/specialists/reviewer-acceptance.md) | [reviewer-acceptance](plugins/personal-prs-agent/agents/reviewer-acceptance.md) |
+
+Claude loads the plugin's `agents/` definitions. Codex's leader passes the same shared instructions to native subagents. The definitions are generated from the shared files and checked for drift, so the two hosts use the same review guidance. The leader stays in the main session; specialists return candidates and never post or modify code. Claude specialists have read/search tools only; the leader handles requested test runs and remote evidence.
+
+The skill's `agents/openai.yaml` is only Codex display metadata. It is not a specialist definition. Standalone skill copies retain all shared guidance; native Claude agent registration requires installing the plugin.
+
 ## Why install all skills?
 
 One collection gives you consistent review habits, private memory boundaries, and the same workflow across Codex and Claude Code. Skill instructions are loaded when relevant rather than putting the entire library into every prompt; discovery metadata still has a context cost.

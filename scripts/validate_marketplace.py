@@ -3,6 +3,7 @@
 import json
 from pathlib import Path
 import re
+from build_claude_agents import check as check_agents
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -44,6 +45,7 @@ def validate():
             path = (file.parent / target.split('#', 1)[0]).resolve()
             assert path.is_relative_to(ROOT.resolve()), f'Link escapes package: {file}: {target}'
             assert path.exists(), f'Broken link: {file}: {target}'
+    assert not check_agents(ROOT), 'Run python3 scripts/build_claude_agents.py to synchronize Claude agents'
     print('Marketplace manifests, versions, skill resources and local links passed.')
 
 if __name__ == '__main__':

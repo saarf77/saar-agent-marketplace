@@ -6,6 +6,8 @@ Put shared skills in `plugins/<name>/skills/`. Add native manifests under `.code
 
 Skills should separate analysis from external actions, identify missing evidence, and document any dependency or capability limitation. Do not install schedulers or posting hooks as a side effect. Keep personal memory outside the source and plugin cache.
 
+For Personal PRs Agent, edit the canonical role files under `plugins/personal-prs-agent/skills/personal-prs-agent/references/specialists/`. Run `python3 scripts/build_claude_agents.py` to regenerate the self-contained Claude definitions under the plugin's `agents/` directory; do not hand-edit those generated files. Keep specialists read-only and leave orchestration, training, personal wording, and posting with the leader.
+
 Before submitting a change:
 
 ```sh

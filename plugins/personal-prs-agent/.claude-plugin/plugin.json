@@ -1,6 +1,6 @@
 {
   "name": "personal-prs-agent",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Train a private reviewer from your PR/MR history, then coordinate specialist reviews in your style. Draft first; post inline when requested.",
   "author": {
     "name": "saarf77",
