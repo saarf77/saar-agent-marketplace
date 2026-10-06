@@ -1,0 +1,7 @@
+Personal Plan Review is adapted from melech-plan-review in AdirD/agent-shell-hamelech.
+Upstream: https://github.com/AdirD/agent-shell-hamelech
+Revision: bc29915df126e3285289faa12c355049e6018680
+Copyright (c) 2026 AdirD. MIT license preserved in LICENSE.
+Adaptation by saarf77: renamed skill, Codex and Claude packaging, host invocation and review guidance.
+The upstream HTML template and Python server are unchanged.
+Codex explicit invocation uses agents/openai.yaml; Claude uses standard skill discovery and its namespaced command.

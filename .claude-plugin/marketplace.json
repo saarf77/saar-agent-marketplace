@@ -5,7 +5,7 @@
   },
   "metadata": {
     "description": "Practical skills and plugins for Codex and Claude Code.",
-    "version": "0.2.0"
+    "version": "0.3.0"
   },
   "plugins": [
     {
@@ -13,6 +13,12 @@
       "source": "./plugins/personal-prs-agent",
       "description": "Train a private reviewer from your PR/MR history, then coordinate specialist reviews in your style.",
       "version": "0.2.0"
+    },
+    {
+      "name": "personal-plan-review",
+      "source": "./plugins/personal-plan-review",
+      "description": "Review a plan as an interactive behavior diff, leave inline comments, and decide before implementation.",
+      "version": "0.1.0"
     }
   ]
 }

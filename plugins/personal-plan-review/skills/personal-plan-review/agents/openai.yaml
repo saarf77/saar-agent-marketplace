@@ -1,0 +1,6 @@
+interface:
+  display_name: "Personal Plan Review"
+  short_description: "Review proposed behavior before implementation."
+  default_prompt: "Use $personal-plan-review to show this plan as an interactive behavior diff."
+policy:
+  allow_implicit_invocation: false

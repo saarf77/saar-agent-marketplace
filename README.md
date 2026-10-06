@@ -11,6 +11,34 @@ The workflows are public. Your review history, company context, and learned pref
 | Skill | Question it answers | Reach for it when |
 | --- | --- | --- |
 | [Personal PRs Agent](plugins/personal-prs-agent/skills/personal-prs-agent/SKILL.md) | “What deserves a comment on this change—and how would I say it?” | You want a GitHub PR, GitLab MR, or local diff reviewed by a coordinated panel, trained on your own review history. |
+| [Personal Plan Review](plugins/personal-plan-review/skills/personal-plan-review/SKILL.md) | “What would change before we build it?” | You want an interactive plan preview with inline comments and an explicit verdict. |
+
+### Personal Plan Review
+
+Preview a settled plan as a file tree of red/green behavioral changes. Select text
+or line ranges to leave comments, including one comment across multiple files.
+A local Python server saves feedback beside the page. Return to the agent with
+Approve, Commented, or Rejected; approving a plan does not start implementation.
+
+Requires Python 3.9+ and a browser. Both hosts use the same template and server.
+This is a local review tool, not a shared multi-user review service. Generated
+HTML and review JSON stay in your working directory; do not commit private plans
+or comments to this marketplace. Restart your host or start a fresh session after
+installation so the new skill is discovered.
+
+```sh
+# After adding this marketplace (see Install below):
+codex plugin add personal-plan-review@saar-agent-marketplace
+claude plugin install personal-plan-review@saar-agent-marketplace --scope user
+```
+
+Codex: `Use $personal-plan-review to review the current plan. Do not implement.`
+
+Claude Code: `/personal-plan-review:personal-plan-review Review the current plan. Do not implement.`
+
+Adapted from [melech-plan-review](https://github.com/AdirD/agent-shell-hamelech/tree/main/skills/melech-plan-review).
+See its [skill](plugins/personal-plan-review/skills/personal-plan-review/SKILL.md)
+and [attribution](plugins/personal-plan-review/NOTICE).
 
 ### Personal PRs Agent
 
@@ -46,7 +74,7 @@ The skill's `agents/openai.yaml` is only Codex display metadata. It is not a spe
 
 One collection gives you consistent review habits, private memory boundaries, and the same workflow across Codex and Claude Code. Skill instructions are loaded when relevant rather than putting the entire library into every prompt; discovery metadata still has a context cost.
 
-**Today the collection contains one plugin and one skill.** Installing Personal PRs Agent installs the whole current collection. Future plugins will be optional; adding the marketplace does not automatically install future entries.
+**The collection contains two plugins, each with its own skill.** Install either or both. Adding the marketplace does not automatically install its plugins.
 
 ## Install
 

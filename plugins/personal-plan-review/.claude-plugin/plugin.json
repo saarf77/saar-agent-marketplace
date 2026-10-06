@@ -1,0 +1,11 @@
+{
+  "name": "personal-plan-review",
+  "version": "0.1.0",
+  "description": "Review a plan as an interactive behavior diff, leave inline comments, and decide before implementation.",
+  "author": {
+    "name": "saarf77",
+    "url": "https://github.com/saarf77"
+  },
+  "license": "MIT",
+  "skills": "./skills/"
+}
